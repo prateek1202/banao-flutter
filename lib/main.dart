@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'drawer.dart';
-import 'bottonNavigationBar.dart';
-import 'events.dart';
-import 'lessons.dart';
-import 'programs.dart';
+import './widgets/bottonNavigationBar.dart';
+import './widgets/events.dart';
+import './widgets/lessons.dart';
+import './widgets/programs.dart';
 
 void main(List<String> args) {
   runApp(ATGApp());
@@ -148,8 +148,8 @@ class ATGApp extends StatelessWidget {
                 height: 20,
               ),
               Programs(),
-              // Events(),
-              // Lessons(),
+              Events(),
+              Lessons(),
             ],
           ),
         ),

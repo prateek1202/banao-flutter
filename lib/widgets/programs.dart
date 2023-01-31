@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'card.dart';
+import 'package:atg_project/card.dart';
 
 class Programs extends StatelessWidget {
   @override
@@ -25,11 +25,17 @@ class Programs extends StatelessWidget {
             const SizedBox(
               height: 30,
             ),
-            // ListView(
-            //   scrollDirection: Axis.horizontal,
-            //   children: [],
-            // )
-            ListCard("assets/images/mother1.jpg")
+            Container(
+              height: 300,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: [
+                  ListCard("assets/images/mother1.jpg"),
+                  ListCard("assets/images/mother2.jpg"),
+                  ListCard("assets/images/mother3.jpg"),
+                ],
+              ),
+            ),
           ],
         ));
   }
