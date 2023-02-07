@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import 'drawer.dart';
-import './widgets/header.dart';
-import './widgets/bottonNavigationBar.dart';
+import 'ui/drawer.dart';
+import 'ui/header.dart';
+import 'ui/bottonNavigationBar.dart';
 import './widgets/events.dart';
 import './widgets/lessons.dart';
 import './widgets/programs.dart';

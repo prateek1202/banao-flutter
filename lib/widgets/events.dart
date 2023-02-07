@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:atg_project/card.dart';
+import 'package:atg_project/ui/card.dart';
 
 class Events extends StatelessWidget {
   @override
@@ -27,14 +27,17 @@ class Events extends StatelessWidget {
             ),
             Container(
               height: 300,
-              child: ListView(
-                scrollDirection: Axis.horizontal,
-                children: [
-                  ListCard("assets/images/mother1.jpg"),
-                  ListCard("assets/images/mother2.jpg"),
-                  ListCard("assets/images/mother3.jpg"),
-                ],
-              ),
+              child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: 15,
+                  itemBuilder: (context, index) {
+                    return ListCard(
+                      category: null,
+                      createdAt: null,
+                      name: null,
+                      locked: null,
+                    );
+                  }),
             ),
           ],
         ));

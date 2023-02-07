@@ -1,8 +1,32 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
+import 'package:intl/intl.dart';
 
 class ListCard extends StatelessWidget {
-  String address;
-  ListCard(this.address);
+  String? name;
+  DateTime? createdAt;
+  String? category;
+  bool? locked;
+  ListCard(
+      {required this.name,
+      required this.createdAt,
+      required this.category,
+      this.locked});
+
+  List<String> addresses = [
+    "assets/images/mother1.jpg",
+    "assets/images/mother2.jpg",
+    "assets/images/mother3.jpg"
+  ];
+  Random random = Random();
+
+  String parseString(String? str) {
+    if (str == null) {
+      return " ";
+    } else {
+      return str;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,36 +42,43 @@ class ListCard extends StatelessWidget {
                 decoration: BoxDecoration(
                     image: DecorationImage(
                         fit: BoxFit.fitHeight,
-                        image: Image.asset(address).image)),
+                        image:
+                            Image.asset(addresses[random.nextInt(3)]).image)),
               ),
             ),
             Container(
                 // width: double.infinity,
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.2),
-                decoration: BoxDecoration(color: Colors.white),
+                decoration: const BoxDecoration(color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     Text(
-                      "Babycare",
-                      style: TextStyle(fontSize: 20, color: Colors.blue),
+                      category!,
+                      style: const TextStyle(fontSize: 20, color: Colors.blue),
                     ),
                     Text(
-                      'Understanding of Human behaviour',
+                      name!,
                       softWrap: true,
-                      style: TextStyle(
+                      style: const TextStyle(
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
                     Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      mainAxisAlignment: MainAxisAlignment.start,
                       children: [
+                        const SizedBox(
+                          width: 4,
+                        ),
                         Text(
-                          '01 February, 2023',
-                          style: TextStyle(color: Colors.grey),
+                          DateFormat('yMMMMd').format(createdAt!),
+                          style: const TextStyle(color: Colors.grey),
+                        ),
+                        const SizedBox(
+                          width: 40,
                         ),
                         TextButton(onPressed: () {}, child: Text('Book')),
                       ],
